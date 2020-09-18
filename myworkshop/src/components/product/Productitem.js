@@ -12,7 +12,7 @@ class Productitem extends Component{
     }
 
     render(){
-        const {productName, unitPrice, thumbnail} = this.props;
+        const {productName, unitPrice, thumbnail} = this.props.product;
         return( 
             <div className="col-3 p-1">
                 <div className="card pb-0">
@@ -20,7 +20,7 @@ class Productitem extends Component{
                 <div className="card-body">
                     <h5 className="card-title">{productName}</h5>
                     <p className="card-text">{unitPrice} ฿</p>
-                    <a href="#" className="btn btn-success btn-block " onClick={()=>this.addItem(productName)}>เพิ่มสินค้า</a>
+                    <a href="#" className="btn btn-success btn-block " onClick={()=>this.props.onAddOrder(this.props.product)}>เพิ่มสินค้า</a>
                 </div> 
                 </div>
             </div>

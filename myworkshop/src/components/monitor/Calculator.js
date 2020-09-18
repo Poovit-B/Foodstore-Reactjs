@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 
 class Calculator extends Component{
+
     showOrders(orders){ 
         if(!orders || orders.length == 0){
             return (<li class="list-group-item"> ไม่มีสินค้า </li>)
@@ -10,7 +11,7 @@ class Calculator extends Component{
                return(
                 <li class="list-group-item">
                     {order.product.productName} x {order.quantity} = {order.product.unitPrice * order.quantity} ฿
-                    <button className="badge badge-danger badge-pill">ลบ</button>
+                    <button className="badge badge-danger badge-pill" onClick={()=>this.props.onDelOrder(order)}>ลบ</button>
                 </li>
                )
             }) 

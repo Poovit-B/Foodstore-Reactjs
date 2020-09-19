@@ -8,6 +8,7 @@ class Calculator extends Component{
         }else{ 
             // return (<li class="list-group-item"> มีสินค้า </li>)
             return orders.map(order => {
+                console.log(order)
                return(
                 <li class="list-group-item">
                     {order.product.productName} x {order.quantity} = {order.product.unitPrice * order.quantity} ฿

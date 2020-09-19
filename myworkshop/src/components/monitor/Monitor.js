@@ -22,21 +22,21 @@ class Monitor extends Component{
         this.setState({totalPrice: totalPrice, orders:this.state.orders});
     } 
     delOrder(product){  
-        let findOrder = this.state.product.find(order => order.product.productId == product.productId)
-        console.log(findOrder)
-        // let resultOrder = this.state.orders.filter(order => order.product.productId != product.productId)
-        // const totalPrice = this.state.totalPrice - (findOrder.quantity * parseInt(findOrder.product.unitPrice))
-        // this.setState({totalPrice: totalPrice, orders:resultOrder});
+        console.log(product.product.productId)
+        let findOrder = this.state.orders.find(order => order.product.productId == product.product.productId)
+        let resultOrder = this.state.orders.filter(order => order.product.productId != product.product.productId)
+        const totalPrice = this.state.totalPrice - (findOrder.quantity * parseInt(findOrder.product.unitPrice))
+        this.setState({totalPrice: totalPrice, orders:resultOrder});
     } 
 
     render(){ 
         return(
             <div className="container mt-5">
                 <div className="row"> 
-                    <div className="col-md-8">
+                    <div className="col-md-9">
                         <Productlist products={this.props.products} onAddOrder={this.addOrder}  />
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-3">
                         <Calculator totalPrice={this.state.totalPrice} orders={this.state.orders} onDelOrder={this.delOrder}/>
                     </div> 
                 </div>

@@ -6,7 +6,7 @@ import axios from "axios";
 class Monitor extends Component {
     constructor(props) {
         super(props);
-        this.state = { totalPrice: 0, orders: [] };
+        this.state = { totalPrice: 0, orders: [], confirm: false, msg: "" };
         this.addOrder = this.addOrder.bind(this);
         this.delOrder = this.delOrder.bind(this);
         this.cancelOrder = this.cancelOrder.bind(this);
@@ -31,24 +31,29 @@ class Monitor extends Component {
         const totalPrice = this.state.totalPrice - (findOrder.quantity * parseInt(findOrder.product.unitPrice))
         this.setState({ totalPrice: totalPrice, orders: resultOrder });
     }
-    
-    confirmOrder(){
-        const {totalPrice, orders} = this.state;
-        axios.post("http://localhost:3001/orders",{orderDate:new Date(),totalPrice,orders}).then(res =>{
-            this.setState({totalPrice:0,orders:[]});
+
+    confirmOrder() {
+        const { totalPrice, orders } = this.state; 
+        if(orders && orders.length > 0){
+            axios.post("http://localhost:3001/orders", { orderDate: new Date(), totalPrice, orders }).then(res => {
+            this.setState({ totalPrice: 0, orders: [] , confirm : true , msg:"บันทึกรายการสั่งซื้อเรียบร้อยแล้ว"});
         })
+        }else{
+            this.setState({ totalPrice: 0, orders: [] , confirm : true , msg:"กรุณาเลือกสินค้า"});
+        }
     }
-    cancelOrder(){
-        this.setState({totalPrice:0,orders:[]});
+    cancelOrder() {
+        this.setState({ totalPrice: 0, orders: [] , confirm : false});
     }
 
     render() {
         return (
             <div className="container mt-5">
-
+                {this.state.confirm &&
                 <div className="alert alert-secondary text-right">
-                    บันทึกรายการสั่งซื้อเรียบร้อยแล้ว
+                    {this.state.msg}
                 </div>
+                }
                 <div className="row">
                     <div className="col-md-9">
                         <Productlist products={this.props.products} onAddOrder={this.addOrder} />

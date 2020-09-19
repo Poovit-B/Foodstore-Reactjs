@@ -73,12 +73,6 @@
       "id": 1
     },
     {
-      "orderDate": "2020-09-19T07:38:27.095Z",
-      "totalPrice": 0,
-      "orders": [],
-      "id": 2
-    },
-    {
       "orderDate": "2020-09-19T07:39:07.044Z",
       "totalPrice": 340,
       "orders": [

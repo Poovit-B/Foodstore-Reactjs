@@ -30,8 +30,8 @@ class Calculator extends Component{
                 </ul>
                 <h4 className="ml-2 mt-3 text-right">ราคารวม {totalPrice} ฿</h4>
                 <hr/>
-                <button className="btn btn-block btn-danger">ยืนยัน</button>
-                <button className="btn btn-block btn-primary">ยกเลิก</button>
+                <button className="btn btn-block btn-danger" onClick={()=>this.props.onConfirmOrder()}>ยืนยัน</button>
+                <button className="btn btn-block btn-primary" onClick={()=>this.props.onCancelOrder()}>ยกเลิก</button>
             </div>
         )
     }

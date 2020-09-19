@@ -19,7 +19,7 @@ class App extends Component {
         <Route path="/orders" component={Order} />
         <Route path="/products" component={Product} />
 
-        <Route  component={Notfound} />
+        <Route component={Notfound} />
       </Switch>
     )
   }

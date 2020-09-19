@@ -23,8 +23,8 @@ class Productitem extends Component {
                         {this.props.onAddOrder && 
                         <a className="btn btn-primary btn-block " onClick={() => this.props.onAddOrder(this.props.product)}>เพิ่มสินค้า</a>
                         }
-                        {(this.props.onDelProduct || this.props.onEditProduct) &&
-                            <a className="btn btn-success btn-block " >แก้ไข</a>
+                        {(this.props.onDelProduct || this.props.onEditProduct) && 
+                            <a className="btn btn-success btn-block " onClick={() => this.props.onEditProduct(this.props.product)}>แก้ไข</a>
                         } 
                         {(this.props.onDelProduct || this.props.onEditProduct) &&
                             <a className="btn btn-danger btn-block " onClick={() => this.props.onDelProduct(this.props.product)} >ลบ</a>

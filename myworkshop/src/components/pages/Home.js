@@ -5,14 +5,17 @@ import Header from '../Header';
 import Footer from '../Footer';
 import Monitor from '../monitor/Monitor';
 import axios from 'axios';
+
+import { connect } from "react-redux";
+import { productFetch } from "../../actions";
 class Home extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {products : ""};
+
   }
 
-  componentDidMount(){
+  componentDidMount() {
     // 1
     // this.setState({products : [
     //   { productId: 1, productName: "สลัดผัก", unitPrice: "120", thumbnail: "/images/product/1.jpg" },
@@ -28,22 +31,25 @@ class Home extends Component {
     // .then(res => res.json())
     // .then(res => {this.setState({products : res})})
     // 3
-    axios.get("http://localhost:3001/products").then(res =>{
-      this.setState({products : res.data});
-    })
-
-
+    // axios.get("http://localhost:3001/products").then(res =>{
+    //   this.setState({products : res.data});
+    // })
+    // 4 redux
+    this.props.productFetch();
   }
 
 
-  render() { 
-  return ( 
-    <div>
+  render() {
+    return (
+      <div>
         <Header />
-        <Monitor products={this.state.products} />
-    </div>
-  );
+        <Monitor products={this.props.products} />
+      </div>
+    );
   }
 }
+function mapStateToProps(state) {
+  return { products: state.products };
 
-export default Home;
+}
+export default connect(mapStateToProps, { productFetch })(Home);

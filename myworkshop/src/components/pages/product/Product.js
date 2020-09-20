@@ -22,7 +22,7 @@ class Product extends Component {
     } 
 
     onEditProduct(products){
-        this.props.history.push('products/edit'+ products.id)
+        this.props.history.push('products/edit/'+ products.id)
     } 
 
     onDelProduct(products){
@@ -54,7 +54,7 @@ class Product extends Component {
                             <h4>สินค้า</h4>
                         </div>
                         <div className="col-3">
-                            <a className="btn btn-success btn-block "  onClick={() =>this.props.history.push('products/add')}>เพิ่มสินค้า</a>
+                            <a className="btn btn-success btn-block "  onClick={() =>this.props.history.push('products/add/')}>เพิ่มสินค้า</a>
                         </div>
                         <Productlist products={this.props.products} onDelProduct={this.onDelProduct} onEditProduct={this.onEditProduct} /> 
                     </div>

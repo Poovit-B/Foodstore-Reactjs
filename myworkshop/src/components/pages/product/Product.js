@@ -22,11 +22,11 @@ class Product extends Component {
     } 
 
     onEditProduct(products){
-        this.props.history.push('products/edit/'+ products.id)
+        this.props.history.push('products/edit'+ products.id)
     } 
 
     onDelProduct(products){
-        const id = products.productId; 
+        
         // axios.delete("http://localhost:3001/products/" + products.id).then(res=>{
         //     axios.get("http://localhost:3001/products").then(res => {
         //         this.setState({ products: res.data });

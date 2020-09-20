@@ -39,7 +39,7 @@ class Order extends Component {
                                 <h5>รายการที่ {order.id}</h5>
                                 <ul>
                                     {order.orders && order.orders.map(record => {
-                                        return (<li key={record.product.productId}>{record.product.productName}</li>)
+                                        return (<li key={record.product.id}>{record.product.productName}</li>)
                                     })}
                                 </ul>
                                 <h6>ราคารวม {order.totalPrice} ฿</h6>

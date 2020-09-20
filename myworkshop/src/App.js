@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Order from "./components/pages/order/Order";
@@ -19,13 +19,14 @@ class App extends Component {
       <Switch>
  
           <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/orders" component={Order} />
-          <Route path="/products" component={Product} />
-          {/* <Route path="/products/add" component={ProductAdd} />
-          <Route path="/products/edit/:id" component={ProductEdit} /> */}
+          <Route exact path="/about" component={About} />
+          <Route exact path="/orders" component={Order} />
+          <Route exact path="/products" component={Product} />
+          <Route exact path="/products/add" component={ProductAdd} />
+          <Route exact path="/products/edit:id" component={ProductEdit} />
 
-          <Route component={Notfound} />
+          <Route path="*" component={Notfound} />
+          <Redirect to="/404" />
         
       </Switch>
     )

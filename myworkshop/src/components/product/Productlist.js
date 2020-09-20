@@ -12,7 +12,7 @@ class Productlist extends Component{
         console.log(this.props.products)
         if(this.props.products){
             return this.props.products.map(product => ( 
-                <Productitem key={product.productId} product={product} onAddOrder={this.props.onAddOrder} onEditProduct={this.props.onEditProduct} onDelProduct={this.props.onDelProduct} />
+                <Productitem key={product.id} product={product} onAddOrder={this.props.onAddOrder} onEditProduct={this.props.onEditProduct} onDelProduct={this.props.onDelProduct} />
             ))
         }
     }

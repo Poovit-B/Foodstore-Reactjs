@@ -3,29 +3,33 @@ import React, { Component } from 'react';
 import Header from '../../Header';
 import axios from 'axios';
 
+import { connect } from "react-redux";
+import { orderFecth,orerDelete  } from "../../../actions";
+
 class Order extends Component {
     constructor(props) {
         super(props)
-        this.state = { orders: "" }
     }
 
     componentDidMount() {
-        axios.get("http://localhost:3001/orders").then(res => {
-            this.setState({ orders: res.data });
-        })
+        // axios.get("http://localhost:3001/orders").then(res => {
+        //     this.setState({ orders: res.data });
+        // })
+        this.props.orderFecth();
     }
 
     onDelOrder(orders){
-        console.log(orders.id)
-        axios.delete("http://localhost:3001/orders/" + orders.id).then(res=>{
-            axios.get("http://localhost:3001/orders").then(res => {
-                this.setState({ orders: res.data });
-            }) 
-        })
+        // console.log(orders.id)
+        // axios.delete("http://localhost:3001/orders/" + orders.id).then(res=>{
+        //     axios.get("http://localhost:3001/orders").then(res => {
+        //         this.setState({ orders: res.data });
+        //     }) 
+        // })
+        this.props.orerDelete( orders.id);
     }
 
     showOrder() {
-        return this.state.orders && this.state.orders.map(order => {
+        return this.props.orders && this.props.orders.map(order => {
             const date = order.orderDate;
             return (
                 <div key={order.id} className="col-md-3">
@@ -64,5 +68,8 @@ class Order extends Component {
         )
     }
 }
+function mapStateToProps(state){
+    return {orders : state.orders};
+}
 
-export default Order
+export default connect(mapStateToProps,{orderFecth,orerDelete})(Order)

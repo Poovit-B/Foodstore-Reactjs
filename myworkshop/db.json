@@ -13,12 +13,6 @@
       "thumbnail": "/images/product/2.jpg"
     },
     {
-      "id": 3,
-      "productName": "บิงซู",
-      "unitPrice": "200",
-      "thumbnail": "/images/product/3.jpg"
-    },
-    {
       "id": 4,
       "productName": "เฟรนฟราย",
       "unitPrice": "140",
@@ -130,6 +124,101 @@
         }
       ],
       "id": 5
+    },
+    {
+      "orderDate": "2020-09-20T06:46:06.597Z",
+      "totalPrice": 960,
+      "orders": [
+        {
+          "product": {
+            "id": 1,
+            "productName": "สลัดผัก",
+            "unitPrice": "120",
+            "thumbnail": "/images/product/1.jpg"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 2,
+            "productName": "ไก่ทอด",
+            "unitPrice": "90",
+            "thumbnail": "/images/product/2.jpg"
+          },
+          "quantity": 4
+        },
+        {
+          "product": {
+            "id": 4,
+            "productName": "เฟรนฟราย",
+            "unitPrice": "140",
+            "thumbnail": "/images/product/4.jpg"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 5,
+            "productName": "เค้ก 3 ชั้น",
+            "unitPrice": "200",
+            "thumbnail": "/images/product/5.jpg"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 6,
+            "productName": "กาแฟ เฮลตี้ฟู้ด",
+            "unitPrice": "140",
+            "thumbnail": "/images/product/6.jpg"
+          },
+          "quantity": 1
+        }
+      ],
+      "id": 6
+    },
+    {
+      "orderDate": "2020-09-20T06:46:13.837Z",
+      "totalPrice": 800,
+      "orders": [
+        {
+          "product": {
+            "id": 1,
+            "productName": "สลัดผัก",
+            "unitPrice": "120",
+            "thumbnail": "/images/product/1.jpg"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 6,
+            "productName": "กาแฟ เฮลตี้ฟู้ด",
+            "unitPrice": "140",
+            "thumbnail": "/images/product/6.jpg"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "id": 5,
+            "productName": "เค้ก 3 ชั้น",
+            "unitPrice": "200",
+            "thumbnail": "/images/product/5.jpg"
+          },
+          "quantity": 2
+        },
+        {
+          "product": {
+            "id": 4,
+            "productName": "เฟรนฟราย",
+            "unitPrice": "140",
+            "thumbnail": "/images/product/4.jpg"
+          },
+          "quantity": 1
+        }
+      ],
+      "id": 7
     }
   ]
 }

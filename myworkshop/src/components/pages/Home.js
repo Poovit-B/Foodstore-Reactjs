@@ -8,12 +8,14 @@ import axios from 'axios';
 
 import { connect } from "react-redux";
 import { productFetch } from "../../actions";
+import { useDispatch , useSelector} from 'react-redux'; 
 class Home extends Component {
 
   constructor(props) {
     super(props);
 
   }
+  
 
   componentDidMount() {
     // 1
@@ -36,6 +38,7 @@ class Home extends Component {
     // })
     // 4 redux
     this.props.productFetch();
+    
   }
 
 
@@ -50,6 +53,6 @@ class Home extends Component {
 }
 function mapStateToProps(state) {
   return { products: state.products };
-
 }
-export default connect(mapStateToProps, { productFetch })(Home);
+// export default connect(mapStateToProps, { productFetch })(Home);
+export default connect(mapStateToProps,{productFetch})(Home);
